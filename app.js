@@ -1,23 +1,14 @@
-let form = document.querySelector('form')
-let ul = document.querySelector('ul')
-let input = document.querySelector('input')
+function randomColor(){
+    let r = Math.floor(Math.random() * 255)
+    let g = Math.floor(Math.random() * 255)
+    let b = Math.floor(Math.random() * 255)
+    return `rgb(${r}, ${g}, ${b})`
+}
 
-ul.addEventListener('click',function(e){
-    if(e.target.tagName === 'BUTTON'){
-        e.target.parentElement.remove()
-    }
-    else if(e.target.tagName === ''){
-        e.target.parentElement.style.textDecoration = 'line-through'
-    }
-})
+let letters = document.querySelectorAll('.letter')
 
-form.addEventListener('submit', function(e){
-    e.preventDefault();
-    let li = document.createElement('li')
-    let removeBtn = document.createElement('button')
-    li.innerText = input.value + ' '
-    removeBtn.innerText = 'X'
-    input.value = ''
-    ul.appendChild(li)
-    li.appendChild(removeBtn)
-})
+let inervalId = setInterval(function(){
+for(let letter of letters){
+    letter.style.color = randomColor();
+}
+},100)
