@@ -11,4 +11,4 @@ let inervalId = setInterval(function(){
 for(let letter of letters){
     letter.style.color = randomColor();
 }
-},100)
+},1000)
